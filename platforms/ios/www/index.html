@@ -23,82 +23,20 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-        <title>Race FM</title>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-</head>
+        <title>Hello World</title>
+    </head>
 <body>
-<div data-role="page" id="page">
-<div data-role="header">
-    <h1>Race FM</h1>
-  </div>
-<div data-role="content">
-  
-  <div class="container">
-      <div class="row results">
-      </div>
-    </div>
-        
-  </div>
-<footer>
-  <section class="component"><div class="topcoat-tab-bar full">
-  <label class="topcoat-tab-bar__item">
-    <input type="radio" name="tab-bar">
-    <a href="index.html"><button class="topcoat-tab-bar__button full">One</button></a>
-  </label>
-  <label class="topcoat-tab-bar__item">
-    <input type="radio" name="tab-bar">
-    <a href="page2.html"><button class="topcoat-tab-bar__button full">Two</button></a>
-  </label>
-  <label class="topcoat-tab-bar__item">
-    <input type="radio" name="tab-bar">
-    <a href="page3.html"><button class="topcoat-tab-bar__button full">Three</button></a>
-  </label>
-</div></section>
-  </footer>
-<script>
-     $(function () {
-       // Adding the above wrapper around all the code makes sure the whole
-       // DOM is loaded before any code is actually run. Its a good practice
-       // read about it here: http://api.jquery.com/ready/
-
-       var client_id = '2e000ed526de4ce28a447497cc86fe5b'
-       var apiUrl = "https://api.instagram.com/v1/media/popular?client_id=" + client_id + "&callback=?"
-
-       function success (instagramData) {
-         // This is run if the ajax call is successful
-         // The "instagramData" being passed to this function is the returned data from the url
-
-         if (instagramData.meta.code != 200) {
-           // If we don't get a 200 that means instagram threw an error.
-           // Instead of adding the html for images to .results div, we will put the error in there so
-           // we know what happend
-           $('.results').html('<h1>An Error Occured</h1><p>' + instagramData.meta.error_message + '</p>');
-           return
-         }
-
-         $.each(instagramData.data, function(index, gram) {
-           // instagramData.data is the "data" inside the returned json. There is "meta" and "data".
-           // index is just an incremental number for each gram. we don't need it yet.
-           // gram is the information for EACH gram. this $.each loops over all of them.
-
-           if (gram.type == 'image') {
-             // for this example we only care about images
-             $('.results').append('<div class="col-md-3">' +
-                                  '<p><img class="img-circle" style="margin-right: 5px" width="60" src="' + gram.user.profile_picture + '">' + gram.user.username + '</p>' +
-                                  '<img class="img-thumbnail" src="' + gram.images.low_resolution.url + '"/>' +
-                                  '</div>')
-           }
-         });
-       }
-
-       $.ajax({
-         type: "GET",
-         url: apiUrl,
-         dataType: "json",
-         success: success // If successful we call the success function, which lives up above
-       });
-     });
-    </script>
+        <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
 </body>
 </html>
