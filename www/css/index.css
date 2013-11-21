@@ -46,7 +46,7 @@ body {
 }
 
 footer {
-	position:absolute;
+	position:fixed;
 	bottom:0;	
 }
 /* Landscape layout (with min-width) */
