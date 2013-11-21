@@ -113,6 +113,10 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+footer {
+	position:fixed;
+	bottom:0;	
+}
 /**
 *
 * Copyright 2012 Adobe Systems Inc.;
